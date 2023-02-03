@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dropped-item-style {
+  background-color: aquamarine;
+  padding: 0px 10px;
+  border:1px solid #000
+}

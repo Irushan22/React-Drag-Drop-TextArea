@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
+import './style.css'
 
-function Draggable() {
+type DraggableProps = {
+  value: string;
+};
+
+const Draggable: React.FC<DraggableProps> = ({ value }) => {
+
+  const onDragStart = (e: any) => {
+    e.dataTransfer.setData("item_display_value", value);
+  };
+
   return (
-    <div>draggerble</div>
-  )
-}
+    <div
+      id="drag-item-id"
+      className="drag-item-style"
+      draggable
+      onDragStart={onDragStart}
+    >
+      {value}
+    </div>
+  );
+};
 
-export default Draggable
+export default Draggable;

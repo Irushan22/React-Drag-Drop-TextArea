@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import Draggable from "../draggable/draggable";
+import "./style.css";
 
-function DraggableArea() {
+type DraggableAreaProps = {
+  dropperbleItems: any;
+};
+
+const DraggableArea: React.FC<DraggableAreaProps> = ({ dropperbleItems }) => {
   return (
-    <div>draggerbleArea</div>
-  )
-}
+    <div className="draggable-area-wrapper">
+      {dropperbleItems.map((item:any, index: any) => (
+        <Draggable key={index} value={item.displayValue} />
+      ))}
+    </div>
+  );
+};
 
-export default DraggableArea
+export default DraggableArea;

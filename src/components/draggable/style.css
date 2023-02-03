@@ -1,0 +1,7 @@
+.drag-item-style {
+  background-color: aquamarine;
+  padding: 10px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}

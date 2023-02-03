@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DraggableArea from "./components/draggabelArea/draggableArea";
+import DroppableArea from "./components/droppableArea/droppableArea";
 
-function App() {
+type AppProps = {};
+
+const App: React.FC<AppProps> = () => {
+  const [previewText, setPreviewText] = useState("");
+
+  const example = [
+    {
+      displayValue: "rate",
+      actualValue: 80,
+    },
+    {
+      displayValue: "intrest",
+      actualValue: 100,
+    },
+    {
+      displayValue: "eligiblity",
+      actualValue: "yes",
+    },
+    {
+      displayValue: "expirDate",
+      actualValue: "2012.01.03",
+    },
+  ];
+
+  const replaceWithActualValues = (text: string) => {
+    setPreviewText(text);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>previewText:{previewText}</p>
+      <DroppableArea replaceWithActualValFunc={replaceWithActualValues} dropperbleItems={example} />
+      <DraggableArea dropperbleItems={example} />
+    </>
   );
 }
 
