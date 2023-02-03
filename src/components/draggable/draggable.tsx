@@ -7,6 +7,7 @@ type DraggableProps = {
 
 const Draggable: React.FC<DraggableProps> = ({ value }) => {
 
+  //onDragStart function for start drag
   const onDragStart = (e: any) => {
     e.dataTransfer.setData("item_display_value", value);
   };
